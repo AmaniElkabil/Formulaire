@@ -30,12 +30,16 @@
         {
             this.components = new System.ComponentModel.Container();
             this.Form1_Load = new System.Windows.Forms.DataGridView();
-            this.btn_Insert = new System.Windows.Forms.Button();
-            this.btn_update = new System.Windows.Forms.Button();
+            this.btn_save = new System.Windows.Forms.Button();
             this.btn_delete = new System.Windows.Forms.Button();
-            this.txtId_dossier = new System.Windows.Forms.TextBox();
-            this.txtNom_dossier = new System.Windows.Forms.TextBox();
-            this.btn_select = new System.Windows.Forms.Button();
+            this.txttitle = new System.Windows.Forms.TextBox();
+            this.txtauthor = new System.Windows.Forms.TextBox();
+            this.title = new System.Windows.Forms.Label();
+            this.author = new System.Windows.Forms.Label();
+            this.btn_cancel = new System.Windows.Forms.Button();
+            this.IDbook = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.Titlebook = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.AuthorName = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.idbookDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.titleDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.authornameDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
@@ -46,92 +50,138 @@
             // 
             // Form1_Load
             // 
-            this.Form1_Load.AllowUserToAddRows = false;
-            this.Form1_Load.AllowUserToDeleteRows = false;
             this.Form1_Load.AutoGenerateColumns = false;
+            this.Form1_Load.BackgroundColor = System.Drawing.SystemColors.GradientInactiveCaption;
             this.Form1_Load.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             this.Form1_Load.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
+            this.IDbook,
+            this.Titlebook,
+            this.AuthorName,
             this.idbookDataGridViewTextBoxColumn,
             this.titleDataGridViewTextBoxColumn,
             this.authornameDataGridViewTextBoxColumn});
             this.Form1_Load.DataSource = this.bibliolivreBindingSource;
             this.Form1_Load.Location = new System.Drawing.Point(12, 12);
             this.Form1_Load.Name = "Form1_Load";
-            this.Form1_Load.Size = new System.Drawing.Size(507, 259);
+            this.Form1_Load.ReadOnly = true;
+            this.Form1_Load.Size = new System.Drawing.Size(345, 296);
             this.Form1_Load.TabIndex = 0;
             this.Form1_Load.CellContentClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.Form1_Load_CellContentClick);
             // 
-            // btn_Insert
+            // btn_save
             // 
-            this.btn_Insert.Location = new System.Drawing.Point(38, 295);
-            this.btn_Insert.Name = "btn_Insert";
-            this.btn_Insert.Size = new System.Drawing.Size(89, 33);
-            this.btn_Insert.TabIndex = 1;
-            this.btn_Insert.Text = "&Insert";
-            this.btn_Insert.UseVisualStyleBackColor = true;
-            this.btn_Insert.Click += new System.EventHandler(this.btn_Insert_Click);
-            // 
-            // btn_update
-            // 
-            this.btn_update.Location = new System.Drawing.Point(204, 295);
-            this.btn_update.Name = "btn_update";
-            this.btn_update.Size = new System.Drawing.Size(89, 33);
-            this.btn_update.TabIndex = 2;
-            this.btn_update.Text = "&Update";
-            this.btn_update.UseVisualStyleBackColor = true;
-            this.btn_update.Click += new System.EventHandler(this.btn_update_Click);
+            this.btn_save.BackColor = System.Drawing.SystemColors.GradientInactiveCaption;
+            this.btn_save.Location = new System.Drawing.Point(476, 162);
+            this.btn_save.Name = "btn_save";
+            this.btn_save.Size = new System.Drawing.Size(89, 33);
+            this.btn_save.TabIndex = 2;
+            this.btn_save.Text = "&Save";
+            this.btn_save.UseVisualStyleBackColor = false;
+            this.btn_save.Click += new System.EventHandler(this.btn_save_Click);
             // 
             // btn_delete
             // 
-            this.btn_delete.Location = new System.Drawing.Point(396, 295);
+            this.btn_delete.BackColor = System.Drawing.SystemColors.GradientInactiveCaption;
+            this.btn_delete.Location = new System.Drawing.Point(595, 160);
             this.btn_delete.Name = "btn_delete";
             this.btn_delete.Size = new System.Drawing.Size(89, 33);
             this.btn_delete.TabIndex = 3;
             this.btn_delete.Text = "&Delete";
-            this.btn_delete.UseVisualStyleBackColor = true;
+            this.btn_delete.UseVisualStyleBackColor = false;
             this.btn_delete.Click += new System.EventHandler(this.btn_delete_Click);
             // 
-            // txtId_dossier
+            // txttitle
             // 
-            this.txtId_dossier.Location = new System.Drawing.Point(559, 113);
-            this.txtId_dossier.Name = "txtId_dossier";
-            this.txtId_dossier.Size = new System.Drawing.Size(148, 20);
-            this.txtId_dossier.TabIndex = 4;
+            this.txttitle.Location = new System.Drawing.Point(476, 37);
+            this.txttitle.Multiline = true;
+            this.txttitle.Name = "txttitle";
+            this.txttitle.Size = new System.Drawing.Size(321, 34);
+            this.txttitle.TabIndex = 7;
             // 
-            // txtNom_dossier
+            // txtauthor
             // 
-            this.txtNom_dossier.Location = new System.Drawing.Point(559, 149);
-            this.txtNom_dossier.Name = "txtNom_dossier";
-            this.txtNom_dossier.Size = new System.Drawing.Size(148, 20);
-            this.txtNom_dossier.TabIndex = 5;
+            this.txtauthor.Location = new System.Drawing.Point(476, 93);
+            this.txtauthor.Multiline = true;
+            this.txtauthor.Name = "txtauthor";
+            this.txtauthor.Size = new System.Drawing.Size(321, 32);
+            this.txtauthor.TabIndex = 10;
             // 
-            // btn_select
+            // title
             // 
-            this.btn_select.Location = new System.Drawing.Point(592, 188);
-            this.btn_select.Name = "btn_select";
-            this.btn_select.Size = new System.Drawing.Size(89, 33);
-            this.btn_select.TabIndex = 6;
-            this.btn_select.Text = "&Select";
-            this.btn_select.UseVisualStyleBackColor = true;
-            this.btn_select.Click += new System.EventHandler(this.btn_select_Click);
+            this.title.AutoSize = true;
+            this.title.Font = new System.Drawing.Font("Bahnschrift Condensed", 18F, ((System.Drawing.FontStyle)((System.Drawing.FontStyle.Bold | System.Drawing.FontStyle.Underline))), System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.title.Location = new System.Drawing.Point(414, 37);
+            this.title.Name = "title";
+            this.title.Size = new System.Drawing.Size(56, 29);
+            this.title.TabIndex = 8;
+            this.title.Text = "Title :";
+            // 
+            // author
+            // 
+            this.author.AutoSize = true;
+            this.author.Font = new System.Drawing.Font("Bahnschrift Condensed", 15.75F, ((System.Drawing.FontStyle)((System.Drawing.FontStyle.Bold | System.Drawing.FontStyle.Underline))), System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.author.Location = new System.Drawing.Point(359, 93);
+            this.author.Name = "author";
+            this.author.Size = new System.Drawing.Size(111, 25);
+            this.author.TabIndex = 9;
+            this.author.Text = "Author name :";
+            // 
+            // btn_cancel
+            // 
+            this.btn_cancel.BackColor = System.Drawing.SystemColors.GradientInactiveCaption;
+            this.btn_cancel.DialogResult = System.Windows.Forms.DialogResult.Cancel;
+            this.btn_cancel.Location = new System.Drawing.Point(706, 162);
+            this.btn_cancel.Name = "btn_cancel";
+            this.btn_cancel.Size = new System.Drawing.Size(91, 31);
+            this.btn_cancel.TabIndex = 11;
+            this.btn_cancel.Text = "&Cancel";
+            this.btn_cancel.UseVisualStyleBackColor = false;
+            this.btn_cancel.Click += new System.EventHandler(this.btn_cancel_Click);
+            // 
+            // IDbook
+            // 
+            this.IDbook.DataPropertyName = "id_book";
+            this.IDbook.HeaderText = "IDbook";
+            this.IDbook.Name = "IDbook";
+            this.IDbook.ReadOnly = true;
+            this.IDbook.Visible = false;
+            // 
+            // Titlebook
+            // 
+            this.Titlebook.DataPropertyName = "title";
+            this.Titlebook.HeaderText = "Title";
+            this.Titlebook.Name = "Titlebook";
+            this.Titlebook.ReadOnly = true;
+            this.Titlebook.Visible = false;
+            // 
+            // AuthorName
+            // 
+            this.AuthorName.DataPropertyName = "author_name";
+            this.AuthorName.HeaderText = "Author Name";
+            this.AuthorName.Name = "AuthorName";
+            this.AuthorName.ReadOnly = true;
+            this.AuthorName.Visible = false;
             // 
             // idbookDataGridViewTextBoxColumn
             // 
             this.idbookDataGridViewTextBoxColumn.DataPropertyName = "id_book";
             this.idbookDataGridViewTextBoxColumn.HeaderText = "id_book";
             this.idbookDataGridViewTextBoxColumn.Name = "idbookDataGridViewTextBoxColumn";
+            this.idbookDataGridViewTextBoxColumn.ReadOnly = true;
             // 
             // titleDataGridViewTextBoxColumn
             // 
             this.titleDataGridViewTextBoxColumn.DataPropertyName = "title";
             this.titleDataGridViewTextBoxColumn.HeaderText = "title";
             this.titleDataGridViewTextBoxColumn.Name = "titleDataGridViewTextBoxColumn";
+            this.titleDataGridViewTextBoxColumn.ReadOnly = true;
             // 
             // authornameDataGridViewTextBoxColumn
             // 
             this.authornameDataGridViewTextBoxColumn.DataPropertyName = "author_name";
             this.authornameDataGridViewTextBoxColumn.HeaderText = "author_name";
             this.authornameDataGridViewTextBoxColumn.Name = "authornameDataGridViewTextBoxColumn";
+            this.authornameDataGridViewTextBoxColumn.ReadOnly = true;
             // 
             // bibliolivreBindingSource
             // 
@@ -141,17 +191,20 @@
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(719, 355);
-            this.Controls.Add(this.btn_select);
-            this.Controls.Add(this.txtNom_dossier);
-            this.Controls.Add(this.txtId_dossier);
+            this.BackColor = System.Drawing.SystemColors.ActiveCaption;
+            this.ClientSize = new System.Drawing.Size(808, 309);
+            this.Controls.Add(this.btn_cancel);
+            this.Controls.Add(this.txttitle);
+            this.Controls.Add(this.txtauthor);
+            this.Controls.Add(this.title);
+            this.Controls.Add(this.author);
             this.Controls.Add(this.btn_delete);
-            this.Controls.Add(this.btn_update);
-            this.Controls.Add(this.btn_Insert);
+            this.Controls.Add(this.btn_save);
             this.Controls.Add(this.Form1_Load);
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.FixedDialog;
             this.Name = "Form1";
             this.Text = "Form1";
+            this.Load += new System.EventHandler(this.Form1_Load_1);
             ((System.ComponentModel.ISupportInitialize)(this.Form1_Load)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.bibliolivreBindingSource)).EndInit();
             this.ResumeLayout(false);
@@ -162,16 +215,20 @@
         #endregion
 
         private System.Windows.Forms.DataGridView Form1_Load;
-        private System.Windows.Forms.Button btn_Insert;
-        private System.Windows.Forms.Button btn_update;
+        private System.Windows.Forms.Button btn_save;
         private System.Windows.Forms.Button btn_delete;
+        private System.Windows.Forms.BindingSource bibliolivreBindingSource;
+        private System.Windows.Forms.TextBox txttitle;
+        private System.Windows.Forms.TextBox txtauthor;
+        private System.Windows.Forms.Label title;
+        private System.Windows.Forms.Label author;
+        private System.Windows.Forms.Button btn_cancel;
+        private System.Windows.Forms.DataGridViewTextBoxColumn IDbook;
+        private System.Windows.Forms.DataGridViewTextBoxColumn Titlebook;
+        private System.Windows.Forms.DataGridViewTextBoxColumn AuthorName;
         private System.Windows.Forms.DataGridViewTextBoxColumn idbookDataGridViewTextBoxColumn;
         private System.Windows.Forms.DataGridViewTextBoxColumn titleDataGridViewTextBoxColumn;
         private System.Windows.Forms.DataGridViewTextBoxColumn authornameDataGridViewTextBoxColumn;
-        private System.Windows.Forms.BindingSource bibliolivreBindingSource;
-        private System.Windows.Forms.TextBox txtId_dossier;
-        private System.Windows.Forms.TextBox txtNom_dossier;
-        private System.Windows.Forms.Button btn_select;
     }
 }
 
