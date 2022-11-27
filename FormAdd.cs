@@ -21,13 +21,30 @@ namespace Formulaire
             if(obj == null) 
             {
                 bibliolivreBindingSource.DataSource = new biblio_livre();
-                
+                db.biblio_livre.Add(bibliolivreBindingSource.Current as biblio_livre);
+            }
+            else 
+            {
+                bibliolivreBindingSource.DataSource = new biblio_livre();
+                db.biblio_livre.Attach(bibliolivreBindingSource.Current as biblio_livre);
             }
         }
 
         private void FormAdd_FormClosing(object sender, FormClosingEventArgs e)
         {
-
+            if (DialogResult == DialogResult.OK) 
+            {
+                if (string.IsNullOrEmpty(txttitle.Text)) 
+                {
+                    MessageBox.Show("!!Please entre book title!!","Message",MessageBoxButtons.OK, MessageBoxIcon.Information);
+                    txttitle.Focus();
+                    e.Cancel = true;
+                    return;
+                }
+                db.SaveChanges();
+                e.Cancel = false;
+            }
+            e.Cancel = false; 
         }
     }
 }
