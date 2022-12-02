@@ -32,7 +32,7 @@ namespace Formulaire
         void Clear() 
         {
             txttitle.Text = txtauthor.Text = "";
-            btn_save.Text = "Save";
+            btn_insert.Text = "insert";
             btn_delete.Enabled = false;
             model.id_book = 0;
         }
@@ -43,7 +43,7 @@ namespace Formulaire
             PopulateData();
         }
 
-        private void btn_save_Click(object sender, EventArgs e)
+        private void btn_insert_Click(object sender, EventArgs e)
         {
             model.title = txttitle.Text.Trim();
             model.author_name = txtauthor.Text.Trim();
@@ -78,7 +78,7 @@ namespace Formulaire
                     txttitle.Text = model.title;
                     txtauthor.Text = model.author_name;
                 }
-                btn_save.Text = "Update";
+                btn_insert.Text = "Update";
                 btn_delete.Enabled = true;
             }
         }
@@ -98,5 +98,12 @@ namespace Formulaire
                     MessageBox.Show("Deleted Successfully");
             }
         }
+
+        private void title_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        
     }
 }

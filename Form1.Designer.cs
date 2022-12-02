@@ -30,13 +30,6 @@
         {
             this.components = new System.ComponentModel.Container();
             this.Form1_Load = new System.Windows.Forms.DataGridView();
-            this.btn_save = new System.Windows.Forms.Button();
-            this.btn_delete = new System.Windows.Forms.Button();
-            this.txttitle = new System.Windows.Forms.TextBox();
-            this.txtauthor = new System.Windows.Forms.TextBox();
-            this.title = new System.Windows.Forms.Label();
-            this.author = new System.Windows.Forms.Label();
-            this.btn_cancel = new System.Windows.Forms.Button();
             this.IDbook = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.Titlebook = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.AuthorName = new System.Windows.Forms.DataGridViewTextBoxColumn();
@@ -44,6 +37,15 @@
             this.titleDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.authornameDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.bibliolivreBindingSource = new System.Windows.Forms.BindingSource(this.components);
+            this.btn_insert = new System.Windows.Forms.Button();
+            this.btn_delete = new System.Windows.Forms.Button();
+            this.txttitle = new System.Windows.Forms.TextBox();
+            this.txtauthor = new System.Windows.Forms.TextBox();
+            this.title = new System.Windows.Forms.Label();
+            this.author = new System.Windows.Forms.Label();
+            this.btn_cancel = new System.Windows.Forms.Button();
+            this.btn_select = new System.Windows.Forms.Button();
+            this.btn_save = new System.Windows.Forms.Button();
             ((System.ComponentModel.ISupportInitialize)(this.Form1_Load)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.bibliolivreBindingSource)).BeginInit();
             this.SuspendLayout();
@@ -63,26 +65,68 @@
             this.Form1_Load.DataSource = this.bibliolivreBindingSource;
             this.Form1_Load.Location = new System.Drawing.Point(12, 12);
             this.Form1_Load.Name = "Form1_Load";
-            this.Form1_Load.ReadOnly = true;
             this.Form1_Load.Size = new System.Drawing.Size(345, 296);
             this.Form1_Load.TabIndex = 0;
             this.Form1_Load.CellContentClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.Form1_Load_CellContentClick);
             // 
-            // btn_save
+            // IDbook
             // 
-            this.btn_save.BackColor = System.Drawing.SystemColors.GradientInactiveCaption;
-            this.btn_save.Location = new System.Drawing.Point(476, 162);
-            this.btn_save.Name = "btn_save";
-            this.btn_save.Size = new System.Drawing.Size(89, 33);
-            this.btn_save.TabIndex = 2;
-            this.btn_save.Text = "&Save";
-            this.btn_save.UseVisualStyleBackColor = false;
-            this.btn_save.Click += new System.EventHandler(this.btn_save_Click);
+            this.IDbook.DataPropertyName = "id_book";
+            this.IDbook.HeaderText = "IDbook";
+            this.IDbook.Name = "IDbook";
+            this.IDbook.Visible = false;
+            // 
+            // Titlebook
+            // 
+            this.Titlebook.DataPropertyName = "title";
+            this.Titlebook.HeaderText = "Title";
+            this.Titlebook.Name = "Titlebook";
+            this.Titlebook.Visible = false;
+            // 
+            // AuthorName
+            // 
+            this.AuthorName.DataPropertyName = "author_name";
+            this.AuthorName.HeaderText = "Author Name";
+            this.AuthorName.Name = "AuthorName";
+            this.AuthorName.Visible = false;
+            // 
+            // idbookDataGridViewTextBoxColumn
+            // 
+            this.idbookDataGridViewTextBoxColumn.DataPropertyName = "id_book";
+            this.idbookDataGridViewTextBoxColumn.HeaderText = "id_book";
+            this.idbookDataGridViewTextBoxColumn.Name = "idbookDataGridViewTextBoxColumn";
+            // 
+            // titleDataGridViewTextBoxColumn
+            // 
+            this.titleDataGridViewTextBoxColumn.DataPropertyName = "title";
+            this.titleDataGridViewTextBoxColumn.HeaderText = "title";
+            this.titleDataGridViewTextBoxColumn.Name = "titleDataGridViewTextBoxColumn";
+            // 
+            // authornameDataGridViewTextBoxColumn
+            // 
+            this.authornameDataGridViewTextBoxColumn.DataPropertyName = "author_name";
+            this.authornameDataGridViewTextBoxColumn.HeaderText = "author_name";
+            this.authornameDataGridViewTextBoxColumn.Name = "authornameDataGridViewTextBoxColumn";
+            // 
+            // bibliolivreBindingSource
+            // 
+            this.bibliolivreBindingSource.DataSource = typeof(Formulaire.biblio_livre);
+            // 
+            // btn_insert
+            // 
+            this.btn_insert.BackColor = System.Drawing.SystemColors.GradientInactiveCaption;
+            this.btn_insert.Location = new System.Drawing.Point(501, 216);
+            this.btn_insert.Name = "btn_insert";
+            this.btn_insert.Size = new System.Drawing.Size(89, 33);
+            this.btn_insert.TabIndex = 2;
+            this.btn_insert.Text = "&Insert";
+            this.btn_insert.UseVisualStyleBackColor = false;
+            this.btn_insert.Click += new System.EventHandler(this.btn_insert_Click);
             // 
             // btn_delete
             // 
             this.btn_delete.BackColor = System.Drawing.SystemColors.GradientInactiveCaption;
-            this.btn_delete.Location = new System.Drawing.Point(595, 160);
+            this.btn_delete.Location = new System.Drawing.Point(596, 216);
             this.btn_delete.Name = "btn_delete";
             this.btn_delete.Size = new System.Drawing.Size(89, 33);
             this.btn_delete.TabIndex = 3;
@@ -92,7 +136,7 @@
             // 
             // txttitle
             // 
-            this.txttitle.Location = new System.Drawing.Point(476, 37);
+            this.txttitle.Location = new System.Drawing.Point(475, 65);
             this.txttitle.Multiline = true;
             this.txttitle.Name = "txttitle";
             this.txttitle.Size = new System.Drawing.Size(321, 34);
@@ -100,7 +144,7 @@
             // 
             // txtauthor
             // 
-            this.txtauthor.Location = new System.Drawing.Point(476, 93);
+            this.txtauthor.Location = new System.Drawing.Point(475, 121);
             this.txtauthor.Multiline = true;
             this.txtauthor.Name = "txtauthor";
             this.txtauthor.Size = new System.Drawing.Size(321, 32);
@@ -110,17 +154,18 @@
             // 
             this.title.AutoSize = true;
             this.title.Font = new System.Drawing.Font("Bahnschrift Condensed", 18F, ((System.Drawing.FontStyle)((System.Drawing.FontStyle.Bold | System.Drawing.FontStyle.Underline))), System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.title.Location = new System.Drawing.Point(414, 37);
+            this.title.Location = new System.Drawing.Point(413, 65);
             this.title.Name = "title";
             this.title.Size = new System.Drawing.Size(56, 29);
             this.title.TabIndex = 8;
             this.title.Text = "Title :";
+            this.title.Click += new System.EventHandler(this.title_Click);
             // 
             // author
             // 
             this.author.AutoSize = true;
             this.author.Font = new System.Drawing.Font("Bahnschrift Condensed", 15.75F, ((System.Drawing.FontStyle)((System.Drawing.FontStyle.Bold | System.Drawing.FontStyle.Underline))), System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.author.Location = new System.Drawing.Point(359, 93);
+            this.author.Location = new System.Drawing.Point(358, 121);
             this.author.Name = "author";
             this.author.Size = new System.Drawing.Size(111, 25);
             this.author.TabIndex = 9;
@@ -130,7 +175,7 @@
             // 
             this.btn_cancel.BackColor = System.Drawing.SystemColors.GradientInactiveCaption;
             this.btn_cancel.DialogResult = System.Windows.Forms.DialogResult.Cancel;
-            this.btn_cancel.Location = new System.Drawing.Point(706, 162);
+            this.btn_cancel.Location = new System.Drawing.Point(691, 216);
             this.btn_cancel.Name = "btn_cancel";
             this.btn_cancel.Size = new System.Drawing.Size(91, 31);
             this.btn_cancel.TabIndex = 11;
@@ -138,54 +183,25 @@
             this.btn_cancel.UseVisualStyleBackColor = false;
             this.btn_cancel.Click += new System.EventHandler(this.btn_cancel_Click);
             // 
-            // IDbook
+            // btn_select
             // 
-            this.IDbook.DataPropertyName = "id_book";
-            this.IDbook.HeaderText = "IDbook";
-            this.IDbook.Name = "IDbook";
-            this.IDbook.ReadOnly = true;
-            this.IDbook.Visible = false;
+            this.btn_select.BackColor = System.Drawing.SystemColors.GradientInactiveCaption;
+            this.btn_select.Location = new System.Drawing.Point(585, 25);
+            this.btn_select.Name = "btn_select";
+            this.btn_select.Size = new System.Drawing.Size(84, 34);
+            this.btn_select.TabIndex = 12;
+            this.btn_select.Text = "&Select";
+            this.btn_select.UseVisualStyleBackColor = false;
             // 
-            // Titlebook
+            // btn_save
             // 
-            this.Titlebook.DataPropertyName = "title";
-            this.Titlebook.HeaderText = "Title";
-            this.Titlebook.Name = "Titlebook";
-            this.Titlebook.ReadOnly = true;
-            this.Titlebook.Visible = false;
-            // 
-            // AuthorName
-            // 
-            this.AuthorName.DataPropertyName = "author_name";
-            this.AuthorName.HeaderText = "Author Name";
-            this.AuthorName.Name = "AuthorName";
-            this.AuthorName.ReadOnly = true;
-            this.AuthorName.Visible = false;
-            // 
-            // idbookDataGridViewTextBoxColumn
-            // 
-            this.idbookDataGridViewTextBoxColumn.DataPropertyName = "id_book";
-            this.idbookDataGridViewTextBoxColumn.HeaderText = "id_book";
-            this.idbookDataGridViewTextBoxColumn.Name = "idbookDataGridViewTextBoxColumn";
-            this.idbookDataGridViewTextBoxColumn.ReadOnly = true;
-            // 
-            // titleDataGridViewTextBoxColumn
-            // 
-            this.titleDataGridViewTextBoxColumn.DataPropertyName = "title";
-            this.titleDataGridViewTextBoxColumn.HeaderText = "title";
-            this.titleDataGridViewTextBoxColumn.Name = "titleDataGridViewTextBoxColumn";
-            this.titleDataGridViewTextBoxColumn.ReadOnly = true;
-            // 
-            // authornameDataGridViewTextBoxColumn
-            // 
-            this.authornameDataGridViewTextBoxColumn.DataPropertyName = "author_name";
-            this.authornameDataGridViewTextBoxColumn.HeaderText = "author_name";
-            this.authornameDataGridViewTextBoxColumn.Name = "authornameDataGridViewTextBoxColumn";
-            this.authornameDataGridViewTextBoxColumn.ReadOnly = true;
-            // 
-            // bibliolivreBindingSource
-            // 
-            this.bibliolivreBindingSource.DataSource = typeof(Formulaire.biblio_livre);
+            this.btn_save.BackColor = System.Drawing.SystemColors.GradientInactiveCaption;
+            this.btn_save.Location = new System.Drawing.Point(501, 176);
+            this.btn_save.Name = "btn_save";
+            this.btn_save.Size = new System.Drawing.Size(84, 34);
+            this.btn_save.TabIndex = 14;
+            this.btn_save.Text = "&Save";
+            this.btn_save.UseVisualStyleBackColor = false;
             // 
             // Form1
             // 
@@ -193,13 +209,15 @@
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.SystemColors.ActiveCaption;
             this.ClientSize = new System.Drawing.Size(808, 309);
+            this.Controls.Add(this.btn_save);
+            this.Controls.Add(this.btn_select);
             this.Controls.Add(this.btn_cancel);
             this.Controls.Add(this.txttitle);
             this.Controls.Add(this.txtauthor);
             this.Controls.Add(this.title);
             this.Controls.Add(this.author);
             this.Controls.Add(this.btn_delete);
-            this.Controls.Add(this.btn_save);
+            this.Controls.Add(this.btn_insert);
             this.Controls.Add(this.Form1_Load);
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.FixedDialog;
             this.Name = "Form1";
@@ -215,7 +233,7 @@
         #endregion
 
         private System.Windows.Forms.DataGridView Form1_Load;
-        private System.Windows.Forms.Button btn_save;
+        private System.Windows.Forms.Button btn_insert;
         private System.Windows.Forms.Button btn_delete;
         private System.Windows.Forms.BindingSource bibliolivreBindingSource;
         private System.Windows.Forms.TextBox txttitle;
@@ -229,6 +247,8 @@
         private System.Windows.Forms.DataGridViewTextBoxColumn idbookDataGridViewTextBoxColumn;
         private System.Windows.Forms.DataGridViewTextBoxColumn titleDataGridViewTextBoxColumn;
         private System.Windows.Forms.DataGridViewTextBoxColumn authornameDataGridViewTextBoxColumn;
+        private System.Windows.Forms.Button btn_select;
+        private System.Windows.Forms.Button btn_save;
     }
 }
 
