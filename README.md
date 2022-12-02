@@ -1,2 +1,3 @@
 # Formulaire
-![diagramme de classe](https://user-images.githubusercontent.com/116285602/205361511-5c59d5bc-106c-4fc8-b19c-f7590cb56068.png)
+
+![Diagramme d'état-transition](https://user-images.githubusercontent.com/116285602/205362308-ffc1cb71-db0a-4cbb-8350-be0c199c69ee.png)
